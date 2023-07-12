@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// use App\Http\Requests;
+// use Input, File;
+// use Request;   
+// use App\Http\Requests\SignupRequest;                     
+
+class SignupController extends Controller
+{
+    public function index(){
+        return view('SignupRequest');
+    }
+    public function displayInfor(SignupRequest $Request){
+        $user = [
+            'name'=>$name =$Request -> input("name"),
+            'age'=>$age =$Request -> input("age"),
+            'date'=>$date =$Request -> input("date"),
+            'phone'=>$phone =$Request -> input("phone"),
+            'web'=>$web =$Request -> input("web"),
+            'address'=>$address =$Request -> input("address")
+        ];
+        return view('SignupRequest')->with('user',$user);
+    }
+}
